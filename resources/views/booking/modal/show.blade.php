@@ -64,10 +64,10 @@
             <div class="mt-6 space-y-4">
 
                 <!-- START BUTTON -->
-                <form id="startForm" method="POST" class="hidden">
+                <form id="startForm" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <button id="startBtn" type="submit"
-                        class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        class="hidden w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                         Start Usage
                     </button>
                 </form>

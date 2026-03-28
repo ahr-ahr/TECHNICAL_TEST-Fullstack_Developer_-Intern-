@@ -127,7 +127,15 @@ class DashboardController extends Controller
             ->join('vehicles', 'service_logs.vehicle_id', '=', 'vehicles.id')
             ->select(
                 'vehicles.plate_number',
-                DB::raw('COUNT(*) as total_service'),
+                DB::raw("
+            COUNT(
+                CASE
+                    WHEN service_logs.description IS NOT NULL
+                    AND service_logs.cost IS NOT NULL
+                    THEN 1
+                END
+            ) as total_service
+        "),
                 DB::raw('MAX(service_date) as last_service')
             )
             ->groupBy('vehicles.plate_number')

@@ -67,8 +67,8 @@ class VehicleUsageService
                 'booking_id' => $bookingId,
                 'vehicle_id' => $booking->vehicle_id,
                 'service_date' => now(),
-                'description' => $data['service_description'],
-                'cost' => $data['service_cost'],
+                'description' => $data['service_description'] ?? null,
+                'cost' => $data['service_cost'] ?? null,
             ]);
 
             $booking->update([

@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('vehicle_id')->constrained()->cascadeOnDelete();
             $table->date('service_date');
-            $table->text('description');
-            $table->decimal('cost', 15, 2);
+            $table->text('description')->nullable();
+            $table->decimal('cost', 15, 2)->nullable();
             $table->timestamps();
         });
     }
