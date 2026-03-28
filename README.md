@@ -21,9 +21,9 @@ Aplikasi web untuk manajemen pemesanan kendaraan dengan sistem approval berjenja
 ## Tech Stack
 
 - PHP: >= 8.3
-- Framework: Laravel 12
+- Framework: Laravel 12 (Vite)
 - Database: MySQL / MariaDB
-- Frontend: Blade, Tailwind CSS, Alpine.js, Chart.js
+- Frontend: Blade, Tailwind CSS, Alpine.js, Chart.js,
 - Queue/Notification: Database Notification
 - Testing: PHPUnit
 
@@ -206,6 +206,12 @@ Aplikasi ini menggunakan pendekatan:
 - Approval bersifat sequential (level 1 harus approve sebelum level 2)
 - Notifikasi menggunakan database notification
 - Sistem dirancang modular untuk pengembangan lebih lanjut
+
+![License](https://img.shields.io/badge/license-MIT-blue)
+
+## License
+
+This project is licensed under the MIT License.
 
 ```
 
