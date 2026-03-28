@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\ActivityLog;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,6 +29,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        ActivityLog::create([
+            'user_id' => auth()->id(),
+            'action' => 'login',
+            'description' => 'User logged in',
+        ]);
+
         return redirect()->intended(route('dashboard', absolute: false))->with('success', 'Login berhasil');
     }
 
@@ -36,6 +43,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        ActivityLog::create([
+            'user_id' => auth()->id(),
+            'action' => 'logout',
+            'description' => 'User logged out',
+        ]);
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
