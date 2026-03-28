@@ -8,7 +8,7 @@ Aplikasi web untuk manajemen pemesanan kendaraan dengan sistem approval berjenja
 
 | Role | Email | Password |
 
-| -------- | ----------------- | -------- |
+|----------|--------------------|----------|
 
 | Admin | admin@test.com | 123456 |
 
@@ -20,9 +20,9 @@ Aplikasi web untuk manajemen pemesanan kendaraan dengan sistem approval berjenja
 
 ## Tech Stack
 
-- PHP: PHP 8.3 or higher
+- PHP: >= 8.3
 - Framework: Laravel 12
-- Database: MySQL / MariaDB (testing)
+- Database: MySQL / MariaDB
 - Frontend: Blade, Tailwind CSS, Alpine.js, Chart.js
 - Queue/Notification: Database Notification
 - Testing: PHPUnit
@@ -31,26 +31,61 @@ Aplikasi web untuk manajemen pemesanan kendaraan dengan sistem approval berjenja
 
 ## Installation
 
+Clone repository:
+
 ```bash
-git clone <repo-url>
-cd project
-
-composer install
-npm install
-npm run build
-
-cp .env.example .env
-php artisan key:generate
+git clone https://github.com/ahr-ahr/TECHNICAL_TEST-Fullstack_Developer_-Intern-.git
 ```
 
-````
+Masuk ke folder project:
+
+```bash
+cd TECHNICAL_TEST-Fullstack_Developer_-Intern-
+```
+
+Install dependency backend:
+
+```bash
+composer install
+```
+
+Install dependency frontend:
+
+```bash
+npm install
+```
+
+Build asset (optional):
+
+```bash
+npm run build
+```
+
+Setup environment:
+
+```bash
+cp .env.example .env
+```
+
+Generate app key:
+
+```bash
+php artisan key:generate
+```
 
 ---
 
 ## Database Setup
 
-```
+Jalankan migration:
+
+```bash
 php artisan migrate
+```
+
+Jalankan seeder:
+
+```bash
 php artisan db:seed
 ```
 
@@ -58,11 +93,13 @@ php artisan db:seed
 
 ## Run Application
 
+Jalankan server:
+
 ```bash
 composer run dev
 ```
 
-Akses:
+Akses di browser:
 
 ```
 http://127.0.0.1:8000
@@ -107,13 +144,15 @@ http://127.0.0.1:8000
 
 ## Activity Diagram
 
-<iframe style="border:none" width="800" height="450" src="https://whimsical.com/embed/EMwq6973GJxxY1awSvEjVS"></iframe>
+Lihat di sini:
+[https://whimsical.com/EMwq6973GJxxY1awSvEjVS](https://whimsical.com/EMwq6973GJxxY1awSvEjVS)
 
 ---
 
 ## Physical Data Model
 
-<iframe width="560" height="315" src="https://dbdiagram.io/e/69c563b9fb2db18e3b133428/69c563bffb2db18e3b1334d1"></iframe>
+Lihat di sini:
+[https://dbdiagram.io/e/69c563b9fb2db18e3b133428](https://dbdiagram.io/e/69c563b9fb2db18e3b133428)
 
 ---
 
@@ -129,9 +168,21 @@ Menjalankan test tertentu:
 
 ```bash
 php artisan test --filter=BookingFlowTest
+```
+
+```bash
 php artisan test --filter=ApprovalLevelOneTest
+```
+
+```bash
 php artisan test --filter=ApprovalLevelTwoTest
+```
+
+```bash
 php artisan test --filter=VehicleUsageTest
+```
+
+```bash
 php artisan test --filter=EndToEndFlowTest
 ```
 
@@ -141,7 +192,7 @@ php artisan test --filter=EndToEndFlowTest
 
 Aplikasi ini menggunakan pendekatan:
 
-- Service Layer Pattern (Business logic dipisah dari controller)
+- Service Layer Pattern (business logic dipisah dari controller)
 - Form Request Validation
 - Database Transaction untuk menjaga konsistensi data
 - Notification System untuk komunikasi antar role
@@ -151,10 +202,11 @@ Aplikasi ini menggunakan pendekatan:
 
 ## Notes
 
-- Semua proses utama (create booking, approval, usage) tercatat di activity_logs
+- Semua proses utama tercatat di `activity_logs`
 - Approval bersifat sequential (level 1 harus approve sebelum level 2)
-- Notifikasi dikirim menggunakan database notification
-- Sistem dirancang modular untuk memudahkan pengembangan lebih lanjut
+- Notifikasi menggunakan database notification
+- Sistem dirancang modular untuk pengembangan lebih lanjut
 
----
-````
+```
+
+```
