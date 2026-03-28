@@ -11,7 +11,7 @@ use App\Models\Approval;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 
-class EndToEndFlow extends TestCase
+class EndToEndFlowTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -28,7 +28,7 @@ class EndToEndFlow extends TestCase
 
         $this->actingAs($admin);
 
-        $response = $this->post('/bookings', [
+        $response = $this->post('/booking', [
             'vehicle_id' => $vehicle->id,
             'driver_id' => $driver->id,
             'start_date' => now()->toDateString(),
@@ -134,6 +134,7 @@ class EndToEndFlow extends TestCase
         ]);
 
         $this->assertDatabaseHas('service_logs', [
+            'booking_id' => $booking->id,
             'vehicle_id' => $booking->vehicle_id,
         ]);
 

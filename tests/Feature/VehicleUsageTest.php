@@ -24,7 +24,7 @@ class VehicleUsageTest extends TestCase
         $driver = Driver::factory()->create();
 
         $this->actingAs($admin);
-        $this->post('/bookings', [
+        $this->post('/booking', [
             'vehicle_id' => $vehicle->id,
             'driver_id' => $driver->id,
             'start_date' => now()->toDateString(),
@@ -76,6 +76,7 @@ class VehicleUsageTest extends TestCase
         ]);
 
         $this->assertDatabaseHas('service_logs', [
+            'booking_id' => $booking->id,
             'vehicle_id' => $booking->vehicle_id,
         ]);
     }

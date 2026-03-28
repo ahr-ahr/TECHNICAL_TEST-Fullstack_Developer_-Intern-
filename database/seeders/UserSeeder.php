@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@test.com',
             'password' => bcrypt('123456'),
             'role' => 'admin',
+            'email_verified_at' => now(),
         ]);
 
         User::create([
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
             'email' => 'approver1@test.com',
             'password' => bcrypt('123456'),
             'role' => 'approver',
+            'email_verified_at' => now(),
         ]);
 
         User::create([
@@ -32,6 +34,7 @@ class UserSeeder extends Seeder
             'email' => 'approver2@test.com',
             'password' => bcrypt('123456'),
             'role' => 'approver',
+            'email_verified_at' => now(),
         ]);
     }
 }

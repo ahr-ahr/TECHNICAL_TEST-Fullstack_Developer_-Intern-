@@ -27,7 +27,7 @@ class ApprovalLevelTwoTest extends TestCase
 
         $this->withoutExceptionHandling();
 
-        $this->post('/bookings', [
+        $this->post('/booking', [
             'vehicle_id' => $vehicle->id,
             'driver_id' => $driver->id,
             'start_date' => now()->toDateString(),
